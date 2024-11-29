@@ -20,6 +20,7 @@ const v1 = '/api/v1/cms';
 
 // Router
 const categoriesRouter = require('./app/api/v1/categories/router');
+const authRouter = require('./app/api/v1/auth/router');
 app.use(v1, categoriesRouter);
 
 app.use(logger('dev'));
@@ -31,5 +32,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(v1, categoriesRouter);
+app.use(v1, authRouter);
 
 module.exports = app;
