@@ -15,5 +15,8 @@ router.get('/users', userController.findUsers);
 //define route for create user
 router.post('/users', validateUser, userController.createUser);
 
+//define route for get user by id
+router.get('/users/:id', userController.findUserById);
+
 //export router
 module.exports = router;
