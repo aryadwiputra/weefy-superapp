@@ -18,5 +18,8 @@ router.post('/users', validateUser, userController.createUser);
 //define route for get user by id
 router.get('/users/:id', userController.findUserById);
 
+//define route for update user by id
+router.put('/users/:id', validateUser, userController.updateUser);
+
 //export router
 module.exports = router;
