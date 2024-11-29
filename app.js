@@ -1,8 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const path = require('path');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -10,6 +11,10 @@ const usersRouter = require('./routes/users');
 const app = express();
 
 app.use(cors());
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
 
 const v1 = '/api/v1/cms';
 
