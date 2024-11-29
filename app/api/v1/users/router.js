@@ -21,5 +21,8 @@ router.get('/users/:id', userController.findUserById);
 //define route for update user by id
 router.put('/users/:id', validateUser, userController.updateUser);
 
+//define route for delete user by id
+router.delete('/users/:id', userController.deleteUser);
+
 //export router
 module.exports = router;
