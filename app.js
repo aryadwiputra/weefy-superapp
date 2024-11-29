@@ -6,7 +6,6 @@ const logger = require('morgan');
 const path = require('path');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -21,7 +20,7 @@ const v1 = '/api/v1/cms';
 // Router
 const categoriesRouter = require('./app/api/v1/categories/router');
 const authRouter = require('./app/api/v1/auth/router');
-app.use(v1, categoriesRouter);
+const usersRouter = require('./app/api/v1/users/router');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -30,8 +29,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use(v1, categoriesRouter);
 app.use(v1, authRouter);
+app.use(v1, usersRouter);
 
 module.exports = app;
