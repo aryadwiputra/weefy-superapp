@@ -5,13 +5,16 @@ const express = require('express');
 const router = express.Router();
 
 //import register controller
-const registerController = require('../auth/controller');
+const authController = require('../auth/controller');
 
 //import validate register
 const { validateRegister } = require('../../../utils/validators/auth');
 
 //define route for register
-router.post('/register', validateRegister, registerController.register);
+router.post('/register', validateRegister, authController.register);
+
+//define route for login
+router.post('/login', authController.login);
 
 //export router
 module.exports = router;
